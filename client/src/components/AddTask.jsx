@@ -23,6 +23,11 @@ const AddTask = ({todoItems}) => {
         axios.post('http://localhost:8000/add',{
             ...data
         })
+        .then(() => setData({
+            id:todoItems[todoItems.length -1].id + 1,
+            task:'',
+            success:0,
+        }))
         .then(() => alert('Задача добавлена'))
         .catch(() => alert('Ошибка, попробуйте позже'))
     }
